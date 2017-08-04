@@ -18,7 +18,9 @@ gulp.task('browserSync', () => {
 gulp.task('watch', ['browserSync'], () => {
 
   watch('./app/assets/styles/**/*.css', () => { gulp.start('cssInject') })
-  watch('./app/assets/js/**/*.js', browserSync.reload )
+  watch('./app/assets/scripts/**/*.js', () => {
+    gulp.start('scriptsRefresh')
+  } )
   watch('./app/index.html', browserSync.reload )
 
 })
@@ -27,4 +29,8 @@ gulp.task('watch', ['browserSync'], () => {
 gulp.task('cssInject', ['styles'], () => {
   return gulp.src('./app/temp/styles/styles.css')
     .pipe(browserSync.stream())
+})
+
+gulp.task('scriptsRefresh', ['scripts'], () => {
+  browserSync.reload()
 })
