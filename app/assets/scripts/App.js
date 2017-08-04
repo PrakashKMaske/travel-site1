@@ -19,7 +19,9 @@ michelle.payTaxes()
 import $ from 'jquery'
 import MobileMenu from './modules/MobileMenu.js'
 import RevealOnScroll from './modules/RevealOnScroll.js'
+import StickyHeader from './modules/StickyHeader.js'
 
 let mobileMenu = new MobileMenu()
+let stickyHeader = new StickyHeader()
 new RevealOnScroll($(".feature-item"), "85%")
 new RevealOnScroll($(".testimonial"), "60%")

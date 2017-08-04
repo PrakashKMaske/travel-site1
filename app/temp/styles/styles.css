@@ -1148,7 +1148,6 @@ Instead edit gulp/templates/sprite*/
  z-index: 2;
  width: 100%;
  padding: 10px 0px 30px 0px;
- /*transfolrm: scale(2);*/
 
  -webkit-transition: all .3s ease-out;
 
@@ -1167,8 +1166,14 @@ Instead edit gulp/templates/sprite*/
 @media (min-width: 800px) {
 
 .site-header {
-   background-color: rgba(47,85,114, .3)
+   background-color: rgba(47,85,114, .3);
+   position: fixed;
+   padding: 10px 0px 10px 0px
 }
+
+   .site-header--dark {
+     background-color: rgba(23, 51, 72, .85)
+   }
   }
 
 @media (min-width: 800px) {
@@ -1186,8 +1191,13 @@ Instead edit gulp/templates/sprite*/
            transform: translateX(-50%) scale(0.8);
    -webkit-transform-origin: 50% 0%;
            transform-origin: 50% 0%;
+   -webkit-transition: -webkit-transform .03s ease-out;
+   transition: -webkit-transform .03s ease-out;
+   transition: transform .03s ease-out;
+   transition: transform .03s ease-out, -webkit-transform .03s ease-out;
 
    background-color: #2f5572;
+
    padding: 25px 36px;
  }
 
@@ -1198,6 +1208,10 @@ Instead edit gulp/templates/sprite*/
      -webkit-transform: translateX(0) scale(1);
              transform: translateX(0) scale(1)
  }
+     .site-header--dark .site-header__logo {
+       -webkit-transform: scale(0.57);
+               transform: scale(0.57);
+     }
   }
 
 .site-header__logo__graphic {
@@ -1299,6 +1313,8 @@ Instead edit gulp/templates/sprite*/
 @media (min-width: 800px) {
 
 .site-header__menu-content {
+
+      opacity: 1;
       padding-top: 0;
       z-index: 1;
       display: block;
@@ -1310,7 +1326,6 @@ Instead edit gulp/templates/sprite*/
 
 .site-header__menu-content--is-visible{
       display: block;
-      z-index: 1;
       opacity: 1;
       -webkit-transform: scale(1);
               transform: scale(1);
@@ -1327,6 +1342,7 @@ Instead edit gulp/templates/sprite*/
 
 .primary-nav {
     padding-top: 0
+    /*background:red;*/
 
 
 }
@@ -1391,8 +1407,13 @@ Instead edit gulp/templates/sprite*/
 
 .primary-nav a {
       font-size: 1rem;
-      padding: 12px 0
+      padding: 12px 0;
+      background-color: transparent
   }
+
+      .primary-nav a.is-current-link{
+        color: #fabb69;
+      }
   }
 
 .reveal-item {
