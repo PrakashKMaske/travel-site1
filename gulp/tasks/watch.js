@@ -1,6 +1,6 @@
 let gulp = require('gulp'),
 watch = require('gulp-watch'),
-browserSync = require('browser-sync')
+browserSync = require('browser-sync').create()
 
 
 gulp.task('browserSync', () => {
